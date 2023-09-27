@@ -1,25 +1,27 @@
-.example-form {
+.FormSearch {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
   
-  .example-full-width {
+  .FormField {
     width: 100%;
   }
-  .example-card {
+  .Card {
     max-width: 400px;
     min-height: 550px;
     cursor: pointer;
   }
   
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
   @media only screen and (max-width: 600px) {
     .example-card {
    margin-left: 5%;
     }
+  }
+
+  .IconSearch{
+    color: #93969a;
+  }
+  .DivCard{
+    min-height: 700px;
   }

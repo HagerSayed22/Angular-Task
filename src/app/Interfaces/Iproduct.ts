@@ -1,5 +1,5 @@
 export interface Iproducts{
-    products:IProduct[]
+    products:IProduct[];
 }
 export interface IProduct{
     id:number,
