@@ -23,8 +23,8 @@ import { DetailsProductComponent } from './details-product/details-product.compo
 })
 export class ProductComponent implements OnInit {
   products:IProduct[]=[];
-  productsBytitle:IProduct[]=[];
-  productsByBrand:IProduct[]=[];
+  productsFromFilterByTitle:IProduct[]=[];
+  productsFromFilterByBrand:IProduct[]=[];
   errorMessage:string="";
   displayAllProducts=true;
   displayAllProductsBySearch=false;
@@ -45,6 +45,10 @@ export class ProductComponent implements OnInit {
   ]; 
 
   ngOnInit() {
+    this.getAllProducts();
+  }
+
+  getAllProducts(){
     this.displayAllProducts=true;
     this.displayAllProductsBySearch=false;
     this.displayAllProductsByBrand=false;
@@ -54,20 +58,21 @@ export class ProductComponent implements OnInit {
       })
   }
 
-   filterSearch(event:any){
+  filterByTitle(event:any){
     this.displayAllProductsBySearch=true;
     this.displayAllProducts=false;
     this.displayAllProductsByBrand=false;
-      this.productsBytitle=this.products.filter(function(ele:any){
+      this.productsFromFilterByTitle=this.products.filter(function(ele:any){
      return ele.title.startsWith(event.target.value);
     });
+    
    } 
 
-   filterDropDown(event:any){
+   filterByBrand(event:any){
     this.displayAllProducts=false;
     this.displayAllProductsBySearch=false;
     this.displayAllProductsByBrand=true;
-    this.productsByBrand=this.products.filter(function(ele:any){
+    this.productsFromFilterByBrand=this.products.filter(function(ele:any){
       return ele.brand===event.value;
      });
    }
@@ -75,19 +80,10 @@ export class ProductComponent implements OnInit {
    getProductById(product:IProduct){
      this.dialog.open(DetailsProductComponent,{
       data:{
-        id:product.id,
-        title:product.title,
-        description:product.description,
-        price:product.price,
-        discountPercentage:product.discountPercentage,
-        rating:product.rating,
-       stock:product.stock,
-       brand:product.brand,
-       category:product.category,
-       images:product.images,
-        
+        productData:product
       }
      });
-   } 
+   }
+    
 }
 

@@ -11,5 +11,5 @@ export interface IProduct{
     stock:number,
     brand:string,
     category:string,
-    images:any[]
+    images:string[]
 }
