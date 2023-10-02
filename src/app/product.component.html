@@ -29,12 +29,13 @@
 </div>
 <br><br><br>
 <div class="container" >
-<div class="row" >
-<div *ngIf="displayAllProducts">
+
+  <div *ngIf="displayAllProducts">
+<div class="row">
 <div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of products" >
  <mat-card class="card" (click)="getProductById(product)" >
   
-  <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="400"  priority="high">
+  <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
  
   <mat-card-content>
     <h4>{{product.title}}</h4>
@@ -47,46 +48,50 @@
 </mat-card> 
 <br><br><br><br><br><br>
 </div>   
+</div> 
 </div>
 
 <div *ngIf="displayAllProductsBySearch">
-<div class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByTitle" >
-<mat-card class="card" (click)="getProductById(product)">
-  
-  <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="400"  priority="high">
-  
-  <mat-card-content>
-    <h4>{{product.title}}</h4>
-    <p>{{product.description}}</p>
-    <p>Brand: <span>{{product.brand}}</span></p>
-   <p>Price: <span>{{product.price}}</span></p>
-   <p>Discount: <span>{{product.discountPercentage}}%</span></p>
-  </mat-card-content>
-  
-</mat-card> 
-<br><br><br><br><br><br>
-</div>   
-</div> 
+  <div class="row">
+  <div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByTitle" >
+   <mat-card class="card" (click)="getProductById(product)" >
+    
+    <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
+   
+    <mat-card-content>
+      <h4>{{product.title}}</h4>
+      <p>{{product.description}}</p>
+      <p>Brand: <span>{{product.brand}}</span></p>
+     <p>Price: <span>{{product.price}}</span></p>
+     <p>Discount: <span>{{product.discountPercentage}}%</span></p>
+    </mat-card-content>
+    
+  </mat-card> 
+  <br><br><br><br><br><br>
+  </div>   
+  </div>
+  </div>
 
-<div *ngIf="displayAllProductsByBrand">
-<div class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByBrand" >
-<mat-card class="card" (click)="getProductById(product)">
-  
-  <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="400"  priority="high">
-  
-  <mat-card-content>
-    <h4>{{product.title}}</h4>
-    <p>{{product.description}}</p>
-    <p>Brand: <span>{{product.brand}}</span></p>
-   <p>Price: <span>{{product.price}}</span></p>
-   <p>Discount: <span>{{product.discountPercentage}}%</span></p>
-  </mat-card-content>
-  
-</mat-card> 
-<br><br><br><br><br><br>
-</div>   
-</div> 
-
+  <div *ngIf="displayAllProductsByBrand">
+    <div class="row" >
+    <div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByBrand" >
+     <mat-card class="card" (click)="getProductById(product)" >
+      
+      <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
+     
+      <mat-card-content>
+        <h4>{{product.title}}</h4>
+        <p>{{product.description}}</p>
+        <p>Brand: <span>{{product.brand}}</span></p>
+       <p>Price: <span>{{product.price}}</span></p>
+       <p>Discount: <span>{{product.discountPercentage}}%</span></p>
+      </mat-card-content>
+      
+    </mat-card> 
+    <br><br><br><br><br><br>
+    </div>   
+    </div>
+    </div>
 
 </div>
 
