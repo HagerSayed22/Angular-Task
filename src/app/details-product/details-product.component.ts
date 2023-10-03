@@ -9,7 +9,7 @@ import { Iproduct } from '../interfaces/iproduct';
   selector: 'app-details-product',
   templateUrl: './details-product.component.html',
   styles:[
-   '.parent-div-card {text-align: center;}'
+   '.parent-div {text-align: center;}'
   
   ]
 })
