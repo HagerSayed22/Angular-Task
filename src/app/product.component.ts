@@ -2,7 +2,7 @@ import { Component ,OnInit} from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {NgFor, AsyncPipe} from '@angular/common';
-import {IProduct } from './interfaces/Iproduct';
+import {Iproduct } from './interfaces/iproduct';
 import { ProductService } from './services/product.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DetailsProductComponent } from './details-product/details-product.component';
@@ -16,13 +16,13 @@ import { SharedModule } from './shared/shared/shared.module';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  products:IProduct[]=[];
-  productsFromFilterByTitle:IProduct[]=[];
-  productsFromFilterByBrand:IProduct[]=[];
+  products:Iproduct[]=[];
+  productsFilteredByTitle:Iproduct[]=[];
+  productsFilteredByBrand:Iproduct[]=[];
   errorMessage:string="";
-  displayAllProducts=true;
-  displayAllProductsBySearch=false;
-  displayAllProductsByBrand=false;
+  allProducts=true;
+  allProductsBySearch=false;
+  allProductsByBrand=false;
   constructor(private productService:ProductService,public dialog: MatDialog){}
   inputSearch = new FormControl('');
  
@@ -43,9 +43,9 @@ export class ProductComponent implements OnInit {
   }
 
   getAllProducts(){
-    this.displayAllProducts=true;
-    this.displayAllProductsBySearch=false;
-    this.displayAllProductsByBrand=false;
+    this.allProducts=true;
+    this.allProductsBySearch=false;
+    this.allProductsByBrand=false;
     this.productService.getAllProducts().subscribe({
       next:data=>this.products=data.products,
       error:error=>this.errorMessage=error
@@ -53,25 +53,25 @@ export class ProductComponent implements OnInit {
   }
 
   filterByTitle(event:any){
-    this.displayAllProductsBySearch=true;
-    this.displayAllProducts=false;
-    this.displayAllProductsByBrand=false;
-      this.productsFromFilterByTitle=this.products.filter(function(ele:any){
+    this.allProductsBySearch=true;
+    this.allProducts=false;
+    this.allProductsByBrand=false;
+      this.productsFilteredByTitle=this.products.filter(function(ele:any){
      return ele.title.startsWith(event.target.value);
     });
     
    } 
 
    filterByBrand(event:any){
-    this.displayAllProducts=false;
-    this.displayAllProductsBySearch=false;
-    this.displayAllProductsByBrand=true;
-    this.productsFromFilterByBrand=this.products.filter(function(ele:any){
+    this.allProducts=false;
+    this.allProductsBySearch=false;
+    this.allProductsByBrand=true;
+    this.productsFilteredByBrand=this.products.filter(function(ele:any){
       return ele.brand===event.value;
      });
    }
 
-   getProductById(product:IProduct){
+   getProductById(product:Iproduct){
      this.dialog.open(DetailsProductComponent,{
       data:{
         productData:product

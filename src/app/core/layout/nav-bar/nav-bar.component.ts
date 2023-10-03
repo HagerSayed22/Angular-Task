@@ -9,15 +9,15 @@ import { Output, EventEmitter,Input } from '@angular/core';
 export class NavBarComponent {
  @Output() mode = new EventEmitter<boolean>();
   @Input() dark=false;
-  convertMode(){
+  convertMode(event:any){
      this.mode.emit(this.dark)
      if(this.dark==false){
-      document.getElementById("BtnDark")!.style.backgroundColor="white";
-      document.getElementById("BtnDark")!.style.color="black";
+      event.target.style.backgroundColor="white";
+      event.target.style.color="black";
      }
      else{
-      document.getElementById("BtnDark")!.style.backgroundColor="black";
-      document.getElementById("BtnDark")!.style.color="white";
+      event.target.style.backgroundColor="black";
+      event.target.style.color="white";
      }
     }
 }

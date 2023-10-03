@@ -1,7 +1,7 @@
-import { Component,OnInit,Inject } from '@angular/core';
+import { Component,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import { ProductComponent } from '../product.component';
-import { IProduct } from '../interfaces/Iproduct';
+import { Iproduct } from '../interfaces/iproduct';
 
 
 
@@ -9,19 +9,16 @@ import { IProduct } from '../interfaces/Iproduct';
   selector: 'app-details-product',
   templateUrl: './details-product.component.html',
   styles:[
-   '.div-card {text-align: center;}'
+   '.parent-div-card {text-align: center;}'
   
   ]
 })
-export class DetailsProductComponent implements OnInit {
-  product:IProduct;
+export class DetailsProductComponent  {
+  product:Iproduct;
   errorMessage:string="";
  constructor(public dialoRef:MatDialogRef<ProductComponent>,@Inject(MAT_DIALOG_DATA) public data:any,
   ){
     this.product=data.productData
   }
- ngOnInit(): void {
 
-
- }
 }

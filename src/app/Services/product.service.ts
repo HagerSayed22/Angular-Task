@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from  '@angular/common/http';
+import { HttpClient} from  '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import {IProduct, Iproducts} from '../interfaces/Iproduct';
+import {Iproduct, Iproducts} from '../interfaces/iproduct';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +16,8 @@ export class ProductService {
    }
  
  
- getProductById(id:number):Observable<IProduct>{
-   return this.http.get<IProduct>(`https://dummyjson.com/products/${id}`).pipe(catchError((err)=>{
+ getProductById(id:number):Observable<Iproduct>{
+   return this.http.get<Iproduct>(`https://dummyjson.com/products/${id}`).pipe(catchError((err)=>{
      return throwError(()=>err.message || 'server error')
    }));
  }

@@ -1,14 +1,11 @@
 
-
-    <p>
       <mat-toolbar color="primary">
         <mat-toolbar-row >
           <span>
             <a routerLink="/Products">Products</a>
           </span>
-          <mat-button-toggle (click)="convertMode()" value="bold" id="BtnDark" >
+          <mat-button-toggle (click)="convertMode($event)" value="bold" id="BtnDark" >
             Dark</mat-button-toggle>  
         </mat-toolbar-row>
     
       </mat-toolbar>
-</p>

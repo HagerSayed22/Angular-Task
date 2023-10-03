@@ -1,7 +1,7 @@
 export interface Iproducts{
-    products:IProduct[];
+    products:Iproduct[];
 }
-export interface IProduct{
+export interface Iproduct{
     id:number,
     title:string,
     description:string,
