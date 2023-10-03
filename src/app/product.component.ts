@@ -1,23 +1,17 @@
 import { Component ,OnInit} from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {NgFor, AsyncPipe} from '@angular/common';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {IProduct } from './interfaces/Iproduct';
 import { ProductService } from './services/product.service';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card'
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { DetailsProductComponent } from './details-product/details-product.component';
+import { SharedModule } from './shared/shared/shared.module';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,FormsModule,ReactiveFormsModule,MatDialogModule,
-    MatAutocompleteModule,MatInputModule,MatFormFieldModule,MatSelectModule,MatCardModule
-            ],
+  imports: [NgOptimizedImage,ReactiveFormsModule,SharedModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })

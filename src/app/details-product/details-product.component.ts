@@ -1,7 +1,7 @@
 import { Component,OnInit,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import { ProductComponent } from '../product.component';
-import { IProduct, Iproducts } from '../interfaces/Iproduct';
+import { IProduct } from '../interfaces/Iproduct';
 
 
 
