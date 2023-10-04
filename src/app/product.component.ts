@@ -2,7 +2,7 @@ import { Component ,OnInit} from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {NgFor, AsyncPipe} from '@angular/common';
-import {Iproduct } from './interfaces/iproduct';
+import {IProduct } from './interfaces/iproduct';
 import { ProductService } from './services/product.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DetailsProductComponent } from './details-product/details-product.component';
@@ -16,9 +16,9 @@ import { SharedModule } from './shared/shared/shared.module';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  products:Iproduct[]=[];
-  productsFilteredByTitle:Iproduct[]=[];
-  productsFilteredByBrand:Iproduct[]=[];
+  products:IProduct[]=[];
+  productsFilteredByTitle:IProduct[]=[];
+  productsFilteredByBrand:IProduct[]=[];
   errorMessage:string="";
   allProducts=true;
   allProductsBySearch=false;
@@ -71,7 +71,7 @@ export class ProductComponent implements OnInit {
      });
    }
 
-   getProductById(product:Iproduct){
+   getProductById(product:IProduct){
      this.dialog.open(DetailsProductComponent,{
       data:{
         productData:product

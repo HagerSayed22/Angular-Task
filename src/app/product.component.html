@@ -31,7 +31,7 @@
 
   <div *ngIf="allProducts">
 <div class="row">
-<div  class="col col-md-3 col-sm-6 col-xs-12 parent-div" *ngFor="let product of products" >
+<div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of products" >
  <mat-card class="card" (click)="getProductById(product)" >
   
   <img ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
@@ -52,7 +52,7 @@
 
 <div *ngIf="allProductsBySearch">
   <div class="row">
-  <div  class="col col-md-3 col-sm-6 col-xs-12 parent-div" *ngFor="let product of productsFilteredByTitle" >
+  <div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of productsFilteredByTitle" >
    <mat-card class="card" (click)="getProductById(product)" >
     
     <img  ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
@@ -73,7 +73,7 @@
 
   <div *ngIf="allProductsByBrand">
     <div class="row" >
-    <div  class="col col-md-3 col-sm-6 col-xs-12 parent-div" *ngFor="let product of productsFilteredByBrand" >
+    <div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of productsFilteredByBrand" >
      <mat-card class="card" (click)="getProductById(product)" >
       
       <img ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
