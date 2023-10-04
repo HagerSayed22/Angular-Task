@@ -7,7 +7,6 @@
             <mat-form-field class="form-field">
               <mat-label><i class="fa-sharp fa-solid fa-magnifying-glass icon-search"></i>&nbsp;&nbsp;Search</mat-label>
               <input type="text" (keyup)="filterByTitle($event)"
-                     aria-label="Number"
                      matInput
                      [formControl]="inputSearch"
                      >
@@ -30,12 +29,12 @@
 <br><br><br>
 <div class="container" >
 
-  <div *ngIf="displayAllProducts">
+  <div *ngIf="allProducts">
 <div class="row">
-<div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of products" >
+<div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of products" >
  <mat-card class="card" (click)="getProductById(product)" >
   
-  <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
+  <img ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
  
   <mat-card-content>
     <h4>{{product.title}}</h4>
@@ -51,12 +50,12 @@
 </div> 
 </div>
 
-<div *ngIf="displayAllProductsBySearch">
+<div *ngIf="allProductsBySearch">
   <div class="row">
-  <div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByTitle" >
+  <div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of productsFilteredByTitle" >
    <mat-card class="card" (click)="getProductById(product)" >
     
-    <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
+    <img  ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
    
     <mat-card-content>
       <h4>{{product.title}}</h4>
@@ -72,12 +71,12 @@
   </div>
   </div>
 
-  <div *ngIf="displayAllProductsByBrand">
+  <div *ngIf="allProductsByBrand">
     <div class="row" >
-    <div  class="col col-md-3 col-sm-6 col-xs-12 div-card" *ngFor="let product of productsFromFilterByBrand" >
+    <div  class="col col-md-3 col-sm-6 col-xs-12 product-div" *ngFor="let product of productsFilteredByBrand" >
      <mat-card class="card" (click)="getProductById(product)" >
       
-      <img mat-card-image ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
+      <img ngSrc="{{product.images[0]}}" alt="Photo of a Shiba Inu" height="300" width="200"  priority="high">
      
       <mat-card-content>
         <h4>{{product.title}}</h4>

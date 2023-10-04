@@ -1,4 +1,4 @@
-export interface Iproducts{
+export interface IProducts{
     products:IProduct[];
 }
 export interface IProduct{
